@@ -1,3 +1,4 @@
+
 workflows:
   android-debug:
     name: AI MATCH PRO - Android APK
@@ -6,9 +7,12 @@ workflows:
     environment:
       java: 17
     scripts:
+      - name: Extract project ZIP
+        script: |
+          unzip -o AI_MATCH_PRO_Starter_Project.zip -d .
       - name: Build debug APK
         script: |
-          gradle --version
           gradle assembleDebug
     artifacts:
       - app/build/outputs/apk/debug/*.apk
+      
